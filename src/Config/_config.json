@@ -1,0 +1,18 @@
+{
+    "environment": "development",
+    "proxy": {
+        "protocol": "http",
+        "url": "localhost:8085"
+    },
+    "notifications": {
+        "autoClose": 5000,
+        "hideProgressBar": false,
+        "newestOnTop": false,
+        "closeOnClick": false,
+        "rtl": false,
+        "pauseOnFocusLoss": true,
+        "draggable": false,
+        "pauseOnHover": true,
+        "closeButton": true
+    }
+}

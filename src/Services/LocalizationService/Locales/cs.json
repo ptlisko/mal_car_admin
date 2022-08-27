@@ -1,0 +1,14 @@
+{
+    "routes.pathname.contact": "kontakt",
+    "routes.pathname.aboutUs": "o-nas",
+    "routes.pathname.purchase": "koupit",
+    "routes.pathname.sell": "prodat",
+    "language.changer.sk": "Slovenstina",
+    "language.changer.cs": "Cestina",
+    "language.changer.en": "Anglictina",
+    "mainMenu.button.name.contact": "Kontakt",
+    "mainMenu.button.name.aboutUs": "O nas",
+    "mainMenu.button.name.purchase": "Koupit",
+    "mainMenu.button.name.sell": "Prodat",
+    "notification.changeLanguage.success": "Jazyk byl uspesne zmenen!"
+}

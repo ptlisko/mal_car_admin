@@ -1,0 +1,14 @@
+.mal-car-language-changer {
+    font-family: 'Ubuntu';
+    font-size: 22px;
+    flex: 1;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    align-content: center;
+    align-self: center;
+    cursor: pointer;
+    padding-right: 10px;
+}

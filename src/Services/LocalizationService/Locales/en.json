@@ -1,0 +1,14 @@
+{
+    "routes.pathname.contact": "contact",
+    "routes.pathname.aboutUs": "about-us",
+    "routes.pathname.purchase": "purchase",
+    "routes.pathname.sell": "sell",
+    "language.changer.sk": "Slovak",
+    "language.changer.cs": "Czech",
+    "language.changer.en": "English",
+    "mainMenu.button.name.contact": "Contact",
+    "mainMenu.button.name.aboutUs": "About Us",
+    "mainMenu.button.name.purchase": "Purchase",
+    "mainMenu.button.name.sell": "Sell",
+    "notification.changeLanguage.success": "The language has been successfully changed!"
+}

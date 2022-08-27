@@ -1,0 +1,15 @@
+.page-base {
+    max-height: 100%;
+    min-height: 100%;
+    flex: 1;
+    position: relative;
+}
+
+.page-base >  div {
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    scrollbar-width: none;
+}
+
+.page-base >  div::-webkit-scrollbar { 
+    display: none;  /* Safari and Chrome */
+}
