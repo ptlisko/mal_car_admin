@@ -11,4 +11,6 @@ export interface IModalModel {
     modalType: string | null;
     visiblePreloader: boolean;
     handleTogglePreloader: (nextVisiblePreloader: boolean) => void;
+    modalData: Record<any, any>;
+    handleOnSetModalData: (nextModalData: Record<any, any>) => void;
 }

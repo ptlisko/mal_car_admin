@@ -8,6 +8,7 @@
     align-content: center;
     align-self: center;
     cursor: pointer;
+    padding-top: 5px;
 }
 
 .side-bar-base-item .side-bar-base-item-icon-wrap {
@@ -25,7 +26,7 @@
     flex: 1;
     height: 30px;
     padding-left: 10px;
-    font-size: 20px;
+    font-size: 1rem;
     font-weight: bold;
     display: flex;
     flex-direction: row;

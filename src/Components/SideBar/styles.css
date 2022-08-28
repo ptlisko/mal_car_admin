@@ -1,8 +1,7 @@
 .side-bar {
     height: 100%;
-    width: 400px;
-    background-color: #b4b4b4;
-    box-shadow: 6px 0px 4px 4px rgb(181, 180, 180, 0.2);
+    width: 350px;
+    background-color: #e6e5e5;
 }
 
 .side-bar.mobile {
@@ -11,7 +10,6 @@
     left: 0;
     height: 100%;
     width: 100%;
-    background-color: #b4b4b4;
     z-index: 999999;
 }
 
@@ -19,6 +17,5 @@
     position: absolute;
     top: 0;
     left: 0;
-    background-color: #b4b4b4;
     z-index: 999999;
 }

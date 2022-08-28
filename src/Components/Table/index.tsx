@@ -49,7 +49,7 @@ const Table: React.FC<ITableProps> = (
             hover
             {...getTableProps()}
             style={{
-                minHeight: '120px',
+                minHeight: '160px',
             }}
         >
             <CTableHead>
@@ -59,7 +59,7 @@ const Table: React.FC<ITableProps> = (
                             return (
                                 <CTableHeaderCell
                                     scope="col"
-                                    key={`vinisto-admin-table-header-item-${headerGroupKey}-${headerKey}`}
+                                    key={`admin-table-header-item-${headerGroupKey}-${headerKey}`}
                                 >
                                     {`${get(header, 'Header', '')}`}
                                 </CTableHeaderCell>
@@ -97,7 +97,7 @@ const Table: React.FC<ITableProps> = (
                                     return (
                                         <CTableDataCell
                                             {...singleCell.getCellProps()}
-                                            key={`vinisto-admin-table-row-item-${singleRowKey}-${singleCellKey}`}
+                                            key={`admin-table-row-item-${singleRowKey}-${singleCellKey}`}
                                         >
                                             {singleCell.render('Cell')}
                                         </CTableDataCell>

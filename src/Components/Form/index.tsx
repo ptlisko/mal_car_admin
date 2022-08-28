@@ -10,6 +10,7 @@
  export { default as InputText } from './Components/Text';
  export { default as InputPhone } from './Components/Phone';
  export { default as InputTextArea } from './Components/TextArea';
+ export { default as InputColorPicker } from './Components/ColorPicker';
  
  
  /**

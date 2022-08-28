@@ -13,21 +13,33 @@ const defaultModalModel: IModalModel = {
     modalType: null,
     handleTogglePreloader: (_: boolean) => { },
     visiblePreloader: false,
+    modalData: {},
+    handleOnSetModalData: (_: Record<any, any>) => { },
 };
 
 export const ModalContext = React.createContext(defaultModalModel);
 
 const ModalProvider: React.FC<IModalProps> = (props): JSX.Element => {
+    const [modalData, setModalData] = React.useState<Record<any, any>>(get(defaultModalModel, 'modalData'));
     const [isOpened, setIsOpened] = React.useState<boolean>(get(defaultModalModel, 'isOpened', false));
     const [visiblePreloader, setVisiblePreloader] = React.useState<boolean>(get(defaultModalModel, 'visiblePreloader', false));
     const [modalType, setModalType] = React.useState<string | null>(get(defaultModalModel, 'modalType', null));
 
-    const handleOpenModal = React.useCallback((nextModalType: string) => {
+    const handleOpenModal = React.useCallback((nextModalType: string, nextModalData?: Record<any, any>) => {
         if (nextModalType !== modalType) {
             setIsOpened(true);
             setModalType(nextModalType);
+            if (nextModalData) {
+                setModalData(nextModalData);
+            }
         }
     }, [modalType, isOpened]);
+
+    const handleOnSetModalData = React.useCallback((nextModalData: Record<any, any>) => {
+        if (nextModalData) {
+            setModalData(nextModalData);
+        }
+    }, []);
 
     const handleCloseModal = React.useCallback(() => {
         setModalType(null);
@@ -40,6 +52,8 @@ const ModalProvider: React.FC<IModalProps> = (props): JSX.Element => {
     }, []);
 
     const modalModel: IModalModel = {
+        handleOnSetModalData,
+        modalData,
         isOpened,
         handleOpenModal,
         handleCloseModal,

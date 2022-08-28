@@ -14,8 +14,7 @@ const WithAuth: React.FC<IWithAuthProps> = (props): JSX.Element => {
     const localizationContext = React.useContext(LocalizationContext);
     const t = localizationContext.useFormatMessage();
     const navigate = useNavigate();
-    console.log('UUUUUUUUUUUU')
-    console.log('authenticationServiceContext.authUser.isLoggedIn => ', authenticationServiceContext.authUser.isLoggedIn);
+
     if (
         get(props, 'allowHost') &&
         !get(props, 'allowAuthenticated') &&
@@ -26,11 +25,16 @@ const WithAuth: React.FC<IWithAuthProps> = (props): JSX.Element => {
         }, 200);
     }
 
+    if (!authenticationServiceContext.checkedAuth) {
+        return (
+            <></>
+        );
+    }
+
     if (
         !get(props, 'allowHost') &&
         get(props, 'allowAuthenticated') &&
-        !authenticationServiceContext.authUser.isLoggedIn &&
-        authenticationServiceContext.checkedAuth
+        !authenticationServiceContext.authUser.isLoggedIn
     ) {
         setTimeout(() => {
             navigate(`${t({ id: 'routes.pathname.logIn' })}`);
@@ -40,12 +44,11 @@ const WithAuth: React.FC<IWithAuthProps> = (props): JSX.Element => {
     if (
         !get(props, 'allowHost') &&
         get(props, 'allowAuthenticated') &&
-        !authenticationServiceContext.authUser.isLoggedIn &&
-        !authenticationServiceContext.checkedAuth
+        !authenticationServiceContext.authUser.isLoggedIn
     ) {
         return (
             <></>
-        )
+        );
     }
 
     if (

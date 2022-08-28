@@ -29,7 +29,7 @@ const BaseItem: React.FC<IBaseItemProps> = (props: IBaseItemProps): JSX.Element 
             <div className='side-bar-base-item-icon-wrap'>
                 <Icon
                     style={{
-                        fontSize: '25px',
+                        fontSize: '22px',
                     }}
                 />
             </div>

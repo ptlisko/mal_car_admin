@@ -32,6 +32,7 @@ const RegisterForm: React.FC = (): JSX.Element => {
         proxyServiceContext.proxyService.post('/api/auth/register', formData)
             .then(() => {
                 notificationServiceContext.handleShowSuccessNotification('notification.registration.success');
+                modalContext.handleTogglePreloader(false);
                 navigate(`${t({ id: 'routes.pathname.logIn' })}`);
             }).catch((error) => {
                 if (localizationContext.isServerErrorTranslatable(error)) {

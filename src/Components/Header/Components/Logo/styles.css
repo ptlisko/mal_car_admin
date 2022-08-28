@@ -12,7 +12,6 @@
     cursor: pointer;
     font-family: 'DynaPuff';
     padding-left: 10px;
-    font-size: 30px;
-    line-height: 70px;
+    font-size: 1.4rem;
     z-index: 99999999!important;
 }

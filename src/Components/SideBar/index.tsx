@@ -13,8 +13,12 @@ import usePrevious from '../../Hooks/usePrevious';
 import './styles.css';
 
 const SideBar: React.FC = (): JSX.Element => {
+    const [optionalListLimit, setOptionalListLimit] = React.useState<number>(16);
+    const sideBarReference = React.useRef(null);
     const authenticationServiceContext = React.useContext(AuthenticationServiceContext);
     const deviceServiceContext = React.useContext(DeviceServiceContext);
+    const layoutHeiht = deviceServiceContext.layoutHeiht;
+    const previousLayoutHeiht = usePrevious(layoutHeiht);
     const sideBarContext = React.useContext(SideBarContext);
     const isDesktop = deviceServiceContext.isDesktop;
     const previousIsDesktop = usePrevious(isDesktop);
@@ -22,7 +26,7 @@ const SideBar: React.FC = (): JSX.Element => {
     const previousIsMobile = usePrevious(isMobile);
     const isTablet = deviceServiceContext.isTablet;
     const previousIsTablet = usePrevious(isTablet);
-    console.log('sideBarContext => ', sideBarContext);
+
     React.useEffect(() => {
         if (previousIsDesktop && !isDesktop) {
             sideBarContext.handleOnForceHideSideBar();
@@ -34,6 +38,22 @@ const SideBar: React.FC = (): JSX.Element => {
             sideBarContext.handleOnForceHideSideBar();
         }
     }, [isDesktop, previousIsDesktop, isMobile, previousIsMobile, isTablet, previousIsTablet]);
+
+    React.useEffect(() => {
+        if (sideBarReference && get(sideBarReference, 'current')) {
+            const nextOptionalListLimit = Math.ceil((get(sideBarReference, 'current.clientHeight', 0) - 160) / 40);
+            setOptionalListLimit(nextOptionalListLimit);
+        }
+    }, [sideBarReference, get(sideBarReference, 'current')]);
+
+    React.useEffect(() => {
+        if (get(sideBarReference, 'current')) {
+            if (previousLayoutHeiht !== layoutHeiht) {
+                const nextOptionalListLimit = Math.ceil((get(sideBarReference, 'current.clientHeight', 0) - 160) / 40);
+                setOptionalListLimit(nextOptionalListLimit);
+            }
+        }
+    }, [sideBarReference, layoutHeiht, previousLayoutHeiht]);
 
     React.useEffect(() => {
         if (!deviceServiceContext.isDesktop && sideBarContext.isOpened) {
@@ -56,8 +76,10 @@ const SideBar: React.FC = (): JSX.Element => {
             <></>
         );
     }
+
     return (
         <div
+            ref={sideBarReference}
             className={cx('side-bar', {
                 mobile: isMobile,
                 desktop: isDesktop,
@@ -65,7 +87,9 @@ const SideBar: React.FC = (): JSX.Element => {
             })}
 
         >
-            <SideBarContent />
+            <SideBarContent
+                optionalListLimit={optionalListLimit}
+            />
         </div>
     );
 };

@@ -18,6 +18,7 @@ import DashBoardPage from "../../Pages/DashBoardPage";
 import RegistrationPage from '../../Pages/RegistrationPage';
 import LogInPage from '../../Pages/LogInPage';
 import UserListPage from '../../Pages/UserListPage';
+import UserDetailPage from '../../Pages/UserDetailPage';
 
 /**
    * Takes custom routes and converts them recursively to React Router DOM routes
@@ -58,6 +59,13 @@ const Routing: React.FC = () => {
         { path: tAll({ id: 'routes.pathname.registration' }), element: <RegistrationPage /> },
         { path: tAll({ id: 'routes.pathname.logIn' }), element: <LogInPage /> },
         { path: tAll({ id: 'routes.pathname.userList' }), element: <UserListPage /> },
+        {
+            path: tAll({ id: 'routes.pathname.userDetail' }), children: [
+                { path: ':userId', element: <UserDetailPage /> },
+                { path: '', element: <Navigate to={'/'} /> },
+            ]
+        },
+
         // Error Pages
         // { path: '*', element: <NotFoundPage /> },
     ]), []);

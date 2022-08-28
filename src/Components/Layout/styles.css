@@ -12,3 +12,15 @@
     align-content: center;
     align-items: center;
 }
+
+.page {
+    flex: 1;
+    position: relative;
+    height: calc(100%);
+    padding: 10px;
+}
+
+
+.page > div::-webkit-scrollbar { 
+    display: none;
+}

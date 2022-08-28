@@ -5,7 +5,6 @@ import {
     Form,
     InputEmail,
     InputText,
-    InputPassword,
 } from '../../../Form';
 
 import { ProxyServiceContext } from '../../../../Services/ProxyService/context';
@@ -30,16 +29,23 @@ const CreateUserForm: React.FC = (): JSX.Element => {
 
     const handleOnLogIn = React.useCallback((formData: Record<any, any>) => {
         modalContext.handleTogglePreloader(true);
-        proxyServiceContext.proxyService.post('/api/auth/login', formData)
-            .then((response) => {
-                authenticationServiceContext.getUserMe(`${response}`);
+        const accessToken = get(authenticationServiceContext, 'authUser.accessToken', '');
+        proxyServiceContext.proxyService.post('/api/user', formData, accessToken)
+            .then(() => {
+                notificationServiceContext.handleShowSuccessNotification('notification.createUser.success');
+                const setUserListState = get(modalContext, 'modalData.setUserListState');
+                const defaultState = get(modalContext, 'modalData.defaultState');
+                if (setUserListState) {
+                    setUserListState({ ...defaultState });
+                }
+                modalContext.handleCloseModal();
             }).catch((error) => {
                 if (localizationContext.isServerErrorTranslatable(error)) {
                     notificationServiceContext.handleShowErrorNotification(get(error, 'message'));
                     modalContext.handleTogglePreloader(false);
                 }
-            })
-    }, []);
+            });
+    }, [modalContext, localizationContext, notificationServiceContext]);
 
     return (
         <Form
@@ -65,8 +71,12 @@ const CreateUserForm: React.FC = (): JSX.Element => {
             />
 
             <InputEmail />
-
-            <InputPassword type={PASSWORD_TYPE} />
+            <InputText
+                name="password"
+                identifier="password"
+                placeholder="form.input.password.placeholder"
+                label="form.input.password.label"
+            />
         </Form>
     );
 };

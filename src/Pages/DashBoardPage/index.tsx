@@ -13,7 +13,7 @@ const DashBoardPage: React.FC = (): JSX.Element => {
     const deviceServiceContext = React.useContext(DeviceServiceContext);
     const proxyServiceContext = React.useContext(ProxyServiceContext);
     const authenticationServiceContext = React.useContext(AuthenticationServiceContext);
-    console.log('RENDER DASH BOARD PAGE => ', authenticationServiceContext.authUser);
+
     return (
         <div
             className='page'
