@@ -38,7 +38,8 @@ const Modal: React.FC = (): JSX.Element => {
             closeOnOverlayClick={false}
             styles={{
                 modal: {
-                    width: `${modalWidth}px`
+                    width: `${modalWidth}px`,
+                    marginTop: '80px',
                 }
             }}
         >

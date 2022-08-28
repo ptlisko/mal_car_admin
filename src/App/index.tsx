@@ -10,8 +10,6 @@ import LocalizationServiceProvider from '../Services/LocalizationService';
 import NotificationServiceProvider from '../Services/NotificationService';
 import ModalProvider from '../Components/Modal/context';
 
-import Modal from '../Components/Modal';
-
 import './styles.css';
 
 // Create React Quary Client
@@ -28,7 +26,6 @@ const MalCarApp: React.FC = (): JSX.Element => {
                             <NotificationServiceProvider>
                                 <ProxyServiceProvider>
                                     <Router />
-                                    <Modal />
                                 </ProxyServiceProvider>
                             </NotificationServiceProvider>
                         </ModalProvider>

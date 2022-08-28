@@ -69,5 +69,3 @@ const LanguageChanger: React.FC = (): JSX.Element => {
 };
 
 export default LanguageChanger;
-
-console.log('COMPONENT NAME => ', LanguageChanger.name)

@@ -10,6 +10,7 @@ import {
 import { ProxyServiceContext } from '../../../../Services/ProxyService/context';
 import { LocalizationContext } from '../../../../Services/LocalizationService';
 import { NotificationServiceContext } from '../../../../Services/NotificationService';
+import { AuthenticationServiceContext } from '../../../../Services/AuthenticationService';
 
 import {
     PASSWORD_TYPE,
@@ -20,6 +21,7 @@ const LogInForm: React.FC = (): JSX.Element => {
     const proxyServiceContext = React.useContext(ProxyServiceContext);
     const localizationContext = React.useContext(LocalizationContext);
     const notificationServiceContext = React.useContext(NotificationServiceContext);
+    const authenticationServiceContext = React.useContext(AuthenticationServiceContext);
 
     const t = localizationContext.useFormatMessage();
 
@@ -27,12 +29,11 @@ const LogInForm: React.FC = (): JSX.Element => {
         console.log('LOGIN DATA => ', formData);
         proxyServiceContext.proxyService.post('/api/auth/login', formData)
             .then((response) => {
-                console.log('LOGIN RESPONSE => ', response);
+                authenticationServiceContext.getUserMe(`${response}`);
             }).catch((error) => {
                 if (localizationContext.isServerErrorTranslatable(error)) {
                     notificationServiceContext.handleShowErrorNotification(get(error, 'message'))
                 }
-                console.log('LOGIN ERROR => ', error)
             })
     }, []);
 

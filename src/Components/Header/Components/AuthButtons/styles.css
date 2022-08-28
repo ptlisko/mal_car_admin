@@ -1,0 +1,9 @@
+.auth-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    height: 100%;
+    align-items: center;
+    align-self: center;
+    align-content: center;
+}

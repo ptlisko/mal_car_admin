@@ -3,7 +3,7 @@ import { get, debounce } from 'lodash-es';
 
 import { IDeviceServiceModel, IDeviceServiceProps } from './interfaces';
 
-const RESIZE_HANDLER_DELAY = 150;
+const RESIZE_HANDLER_DELAY = 10;
 const RESIZE_EVENT = 'resize';
 
 const defaultDeviceServiceModel: IDeviceServiceModel = {

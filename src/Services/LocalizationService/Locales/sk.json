@@ -1,21 +1,21 @@
 {
-    "routes.pathname.contact": "kontakt",
-    "routes.pathname.aboutUs": "o-nas",
-    "routes.pathname.purchase": "kupit",
-    "routes.pathname.sell": "predat",
-    "routes.pathname.registration": "registration",
+    "routes.pathname.registration": "registracia",
     "routes.pathname.logIn": "prihlasenie",
 
     "language.changer.sk": "Sloventina",
     "language.changer.cs": "Cestina",
     "language.changer.en": "Anglictina",
 
-    "mainMenu.button.name.contact": "Kontakt",
-    "mainMenu.button.name.aboutUs": "O nas",
-    "mainMenu.button.name.purchase": "Kupit",
-    "mainMenu.button.name.sell": "Predat",
+    "mainMenu.appTitle": "Mal Car Administracia",
+    "mainMenu.appTitle.short": "Mal Car",
+    "mainMenu.button.name.logOut": "Odhlasit sa",
+    "mainMenu.button.name.logIn": "Prihlasit sa",
+    "mainMenu.button.name.register": "Registrovat sa",
 
     "notification.changeLanguage.success": "Jazyk bol úspešne zmenený!",
+    "notification.logIn.success": "Prihlasenie prebehlo uspesne, vitajte!",
+    "notification.registration.success": "Registracia prebehla uspesne, mozete sa prihlasit!",
+    "notification.logOut.success": "Bol ste uspesne odhlaseny!",
 
     "form.registration.submit": "Registrovat",
     "form.registration.title": "Registracia Mal Car Administracia",
@@ -35,5 +35,6 @@
     "form.logIn.title": "Prihlasenie Mal Car Administracia",
 
     "server.error.notFound.email": "E-mail nenajdeny, prosim registrujte sa!",
-    "server.error.invalid.password": "Nespravne heslo!"
+    "server.error.invalid.password": "Nespravne heslo!",
+    "server.error.acount.alreadyExist": "Ucet uz existuje, prosim prihlaste sa!"
 }

@@ -5,6 +5,8 @@ import Header from '../Header';
 import Content from '../Content';
 import Footer from '../Footer';
 
+import SideBarContextProvider from '../SideBar/context';
+
 import { ILayoutProps } from './interfaces';
 
 import './styles.css';
@@ -12,21 +14,15 @@ import './styles.css';
 const Layout: React.FC<ILayoutProps> = (props: ILayoutProps): JSX.Element => {
     return (
         <div className='layout'>
-            <Header />
-            <Content>
-                {get(props, 'children', '')}
-            </Content>
-            <Footer />
+            <SideBarContextProvider>
+                <Header />
+                <Content>
+                    {get(props, 'children', '')}
+                </Content>
+                <Footer />
+            </SideBarContextProvider>
         </div>
     );
 };
 
-const ConnectedLayout: React.FC<ILayoutProps> = (props: ILayoutProps): JSX.Element => {
-    return (
-        <Layout>
-            {get(props, 'children', '')}
-        </Layout>
-    );
-};
-
-export default ConnectedLayout;
+export default Layout;

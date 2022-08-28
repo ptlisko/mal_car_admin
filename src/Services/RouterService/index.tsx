@@ -3,6 +3,9 @@ import { get, set, map, forEach, isArray, isEqual, split, without, startsWith, p
 import { BrowserRouter, Navigate, useNavigate, useLocation, useRoutes, RouteObject } from 'react-router-dom';
 import { QueryParamProvider } from 'use-query-params';
 
+import AuthenticationServiceProvider from '../AuthenticationService';
+import Modal from '../../Components/Modal';
+
 import { LocalizationContext } from '../LocalizationService';
 
 import { IRouteProps } from './interfaces';
@@ -11,11 +14,7 @@ import { IRouteProps } from './interfaces';
 import ScrollToTop from './Components/ScrollToTop';
 
 import Layout from '../../Components/Layout';
-import HomePage from "../../Pages/HomePage";
-import ContactPage from "../../Pages/ContactPage";
-import AboutUsPage from "../../Pages/AboutUsPage";
-import PurchasePage from "../../Pages/PurchasePage";
-import SellPage from "../../Pages/SellPage";
+import DashBoardPage from "../../Pages/DashBoardPage";
 import RegistrationPage from '../../Pages/RegistrationPage';
 import LogInPage from '../../Pages/LogInPage';
 
@@ -54,11 +53,7 @@ const Routing: React.FC = () => {
     const tAll = localizationContext.useFormatMessageAllStrings();
 
     const routes = React.useMemo(() => createRoutes([
-        { path: '/', element: <HomePage /> },
-        { path: tAll({ id: 'routes.pathname.contact' }), element: <ContactPage /> },
-        { path: tAll({ id: 'routes.pathname.aboutUs' }), element: <AboutUsPage /> },
-        { path: tAll({ id: 'routes.pathname.purchase' }), element: <PurchasePage /> },
-        { path: tAll({ id: 'routes.pathname.sell' }), element: <SellPage /> },
+        { path: '/', element: <DashBoardPage /> },
         { path: tAll({ id: 'routes.pathname.registration' }), element: <RegistrationPage /> },
         { path: tAll({ id: 'routes.pathname.logIn' }), element: <LogInPage /> },
         // Error Pages
@@ -141,12 +136,15 @@ const RouteAdapter = (props: { children?: React.ReactNode }) => {
 const ConnectedBrowserRouter: React.FC = (): JSX.Element => {
     return (
         <BrowserRouter>
-            <Layout>
-                {/* @ts-ignore */}
-                <QueryParamProvider ReactRouterRoute={RouteAdapter}>
-                    <RoutingService />
-                </QueryParamProvider>
-            </Layout>
+            <AuthenticationServiceProvider>
+                <Layout>
+                    {/* @ts-ignore */}
+                    <QueryParamProvider ReactRouterRoute={RouteAdapter}>
+                        <RoutingService />
+                        <Modal />
+                    </QueryParamProvider>
+                </Layout>
+            </AuthenticationServiceProvider>
         </BrowserRouter>
     );
 };

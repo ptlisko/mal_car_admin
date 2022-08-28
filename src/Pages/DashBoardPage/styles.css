@@ -1,0 +1,13 @@
+.page {
+    flex: 1;
+    position: relative;
+    height: calc(100% - 100px);
+    min-height: calc(100% - 100px);
+}
+
+.page >  div {
+}
+
+.page >  div::-webkit-scrollbar { 
+    display: none;  /* Safari and Chrome */
+}

@@ -32,3 +32,12 @@ html {
     min-height: 100%;
     overflow: hidden;
 }
+
+.btn {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: space-evenly !important;
+    align-items: center !important;
+    align-self: center !important;
+    align-content: center !important;
+}

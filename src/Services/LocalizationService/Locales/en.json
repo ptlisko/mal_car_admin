@@ -1,21 +1,21 @@
 {
-    "routes.pathname.contact": "contact",
-    "routes.pathname.aboutUs": "about-us",
-    "routes.pathname.purchase": "purchase",
-    "routes.pathname.sell": "sell",
-    "routes.pathname.registration": "registracia",
+    "routes.pathname.registration": "registration",
     "routes.pathname.logIn": "log-in",
 
     "language.changer.sk": "Slovak",
     "language.changer.cs": "Czech",
     "language.changer.en": "English",
 
-    "mainMenu.button.name.contact": "Contact",
-    "mainMenu.button.name.aboutUs": "About Us",
-    "mainMenu.button.name.purchase": "Purchase",
-    "mainMenu.button.name.sell": "Sell",
+    "mainMenu.appTitle": "Mal Car Administration",
+    "mainMenu.appTitle.short": "Mal Car",
+    "mainMenu.button.name.logOut": "Log Out",
+    "mainMenu.button.name.logIn": "Log In",
+    "mainMenu.button.name.register": "Register",
 
     "notification.changeLanguage.success": "The language has been successfully changed!",
+    "notification.logIn.success": "Login success, welcome!",
+    "notification.registration.success": "Registration success, You can now log in!",
+    "notification.logOut.success": "Log out successfully!",
 
     "form.registration.submit": "Register",
     "form.registration.title": "Registration Mal Car Administration",
@@ -35,5 +35,6 @@
     "form.logIn.title": "Log In Mal Car Administration",
 
     "server.error.notFound.email": "E-mail not found, Please register!",
-    "server.error.invalid.password": "Nespravne heslo!"
+    "server.error.invalid.password": "Invalid Password!",
+    "server.error.acount.alreadyExist": "Account already exist, Please log in!"
 }

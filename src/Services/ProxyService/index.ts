@@ -20,6 +20,12 @@ import {
     UPLOAD_CONTENT_TYPE,
 } from './constants';
 
+Promise.config({
+    warnings: {
+        wForgottenReturn: false
+    }
+});
+
 /**
  * Proxy Service
  * @class ProxyService
@@ -39,7 +45,7 @@ class ProxyService implements IProxyService {
      * Function return request config for axios instance
      * @returns returns a config
      */
-    private getProxyConfig(): AxiosRequestConfig {
+    private getProxyConfig(accessToken?: string): AxiosRequestConfig {
         const proxyRequestConfig: AxiosRequestConfig = {
             data: null,
         };
@@ -47,7 +53,11 @@ class ProxyService implements IProxyService {
             'Content-Type': COMMON_CONTENT_TYPE,
             Accept: COMMON_ACCEPT,
         };
+        if (accessToken) {
+            set(proxyRequestHeader, 'Authentication', accessToken);
+        }
         set(proxyRequestConfig, 'headers', proxyRequestHeader);
+        
 
         return proxyRequestConfig;
     }
@@ -96,16 +106,18 @@ class ProxyService implements IProxyService {
      * @param path string
      * @param requestId number | string | undefined
      * @param queryArguments Record with key/value arguments
+     * @param accessToken String Access Token
      * @returns GET Response data or handle Error
      */
     public get(
         path: string,
         requestId?: string | number | undefined,
         queryArguments?: Record<any, any>,
+        accessToken?: string,
     ): AxiosPromise {
         return new Promise((resolve: (thenableOrResult?: Record<any, any>) => void, reject: (error?: any) => void) => {
             const query: string = this.makeQuery(queryArguments);
-            const proxyRequestConfig: AxiosRequestConfig = this.getProxyConfig();
+            const proxyRequestConfig: AxiosRequestConfig = this.getProxyConfig(accessToken);
 
             Axios.get(
                 `${this.API_URI}${path}${requestId ? `/${requestId}` : ""
@@ -129,16 +141,18 @@ class ProxyService implements IProxyService {
      * @param path string
      * @param requestId number | string | undefined
      * @param queryArguments Record with key/value arguments
+     * @param accessToken String Access Token
      * @returns GET Collection Response data or handle Error
      */
     public getCollection(
         path: string,
         requestId?: string | number | undefined,
         queryArguments?: Record<any, any>,
+        accessToken?: string,
     ): AxiosPromise {
         return new Promise((resolve: (thenableOrResult?: Record<any, any>) => void, reject: (error?: any) => void) => {
             const query: string = this.makeQuery(queryArguments);
-            const proxyRequestConfig: AxiosRequestConfig = this.getProxyConfig();
+            const proxyRequestConfig: AxiosRequestConfig = this.getProxyConfig(accessToken);
             const reqId = requestId ? `/${requestId}` : "";
 
             Axios.get(`${this.API_URI}${path}${reqId}${query}`, proxyRequestConfig)
@@ -159,14 +173,16 @@ class ProxyService implements IProxyService {
      * POST method
      * @param path string
      * @param requestData Record<any, any>
+     * @param accessToken String Access Token
      * @returns POST Response or handle Error
      */
     public post(
         path: string,
         requestData: Record<any, any>,
+        accessToken?: string,
     ): AxiosPromise {
         return new Promise((resolve: (thenableOrResult?: Record<any, any>) => void, reject: (error?: any) => void) => {
-            const proxyRequestConfig: AxiosRequestConfig = this.getProxyConfig();
+            const proxyRequestConfig: AxiosRequestConfig = this.getProxyConfig(accessToken);
 
             Axios.post(`${this.API_URI}${path}`, requestData, proxyRequestConfig)
                 .then((response: AxiosResponse<any>): void | PromiseLike<void> => {
@@ -190,15 +206,17 @@ class ProxyService implements IProxyService {
      * @param path string
      * @param requestData Record<any, any>
      * @param requestId number | string | undefined
+     * @param accessToken String Access Token
      * @returns PUT Response or handle Error
      */
     public put(
         path: string,
         requestData: Record<any, any>,
         requestId?: string | number | undefined,
+        accessToken?: string,
     ): AxiosPromise {
         return new Promise((resolve: (thenableOrResult?: Record<any, any>) => void, reject: (error?: any) => void) => {
-            const proxyRequestConfig: AxiosRequestConfig = this.getProxyConfig();
+            const proxyRequestConfig: AxiosRequestConfig = this.getProxyConfig(accessToken);
 
             Axios.put(
                 `${this.API_URI}${path}${requestId ? `/${requestId}` : ""}`,
@@ -222,15 +240,17 @@ class ProxyService implements IProxyService {
     * @param path string
     * @param requestId number | string | undefined
     * @param queryArguments Record with key/value arguments
+    * @param accessToken String Access Token
     * @returns DELETE Response or handle Error
     */
     public delete(
         path: string,
         requestId: number | string | undefined,
         queryArguments?: Record<any, any>,
+        accessToken?: string,
     ): AxiosPromise {
         return new Promise((resolve: (thenableOrResult?: Record<any, any>) => void, reject: (error?: any) => void) => {
-            const proxyRequestConfig: AxiosRequestConfig = this.getProxyConfig();
+            const proxyRequestConfig: AxiosRequestConfig = this.getProxyConfig(accessToken);
             const query: string = this.makeQuery(queryArguments);
             const reqId = requestId ? `/${requestId}` : "";
 
@@ -253,15 +273,17 @@ class ProxyService implements IProxyService {
     * @param path string
     * @param requestId number | string | undefined
     * @param file File
+    * @param accessToken String Access Token
     * @returns UPLOAD Response or handle Error
     */
     public upload(
         path: string,
         requestId: number | string | undefined,
         file: File,
+        accessToken?: string,
     ): AxiosPromise {
         return new Promise((resolve: (thenableOrResult?: Record<any, any>) => void, reject: (error?: any) => void) => {
-            const proxyRequestConfig: AxiosRequestConfig = this.getProxyConfig();
+            const proxyRequestConfig: AxiosRequestConfig = this.getProxyConfig(accessToken);
             const proxyUploadHeaders: AxiosRequestHeaders = {
                 'content-type': UPLOAD_CONTENT_TYPE,
             };
