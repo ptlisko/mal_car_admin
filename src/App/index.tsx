@@ -4,9 +4,13 @@ import { QueryClientProvider, QueryClient } from 'react-query';
 import Router from '../Services/RouterService';
 
 import ProxyServiceProvider from '../Services/ProxyService/context';
+import DeviceServiceProvider from '../Services/DeviceService';
 import StorageServiceProvider from '../Services/StorageService/context';
 import LocalizationServiceProvider from '../Services/LocalizationService';
 import NotificationServiceProvider from '../Services/NotificationService';
+import ModalProvider from '../Components/Modal/context';
+
+import Modal from '../Components/Modal';
 
 import './styles.css';
 
@@ -16,17 +20,22 @@ const queryClient = new QueryClient();
 const MalCarApp: React.FC = (): JSX.Element => {
     return (
         <div className="mal-car-root">
+            <DeviceServiceProvider>
             <QueryClientProvider client={queryClient}>
                 <StorageServiceProvider>
                     <LocalizationServiceProvider>
-                        <NotificationServiceProvider>
-                            <ProxyServiceProvider>
-                                <Router />
-                            </ProxyServiceProvider>
-                        </NotificationServiceProvider>
+                        <ModalProvider>
+                            <NotificationServiceProvider>
+                                <ProxyServiceProvider>
+                                    <Router />
+                                    <Modal />
+                                </ProxyServiceProvider>
+                            </NotificationServiceProvider>
+                        </ModalProvider>
                     </LocalizationServiceProvider>
                 </StorageServiceProvider>
             </QueryClientProvider>
+            </DeviceServiceProvider>
         </div>
     );
 };

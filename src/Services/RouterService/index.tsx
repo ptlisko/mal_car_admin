@@ -7,7 +7,7 @@ import { LocalizationContext } from '../LocalizationService';
 
 import { IRouteProps } from './interfaces';
 
-import NavigateToPage from './Components/NavigateToPage';
+// import NavigateToPage from './Components/NavigateToPage';
 import ScrollToTop from './Components/ScrollToTop';
 
 import Layout from '../../Components/Layout';
@@ -16,6 +16,8 @@ import ContactPage from "../../Pages/ContactPage";
 import AboutUsPage from "../../Pages/AboutUsPage";
 import PurchasePage from "../../Pages/PurchasePage";
 import SellPage from "../../Pages/SellPage";
+import RegistrationPage from '../../Pages/RegistrationPage';
+import LogInPage from '../../Pages/LogInPage';
 
 /**
    * Takes custom routes and converts them recursively to React Router DOM routes
@@ -57,6 +59,8 @@ const Routing: React.FC = () => {
         { path: tAll({ id: 'routes.pathname.aboutUs' }), element: <AboutUsPage /> },
         { path: tAll({ id: 'routes.pathname.purchase' }), element: <PurchasePage /> },
         { path: tAll({ id: 'routes.pathname.sell' }), element: <SellPage /> },
+        { path: tAll({ id: 'routes.pathname.registration' }), element: <RegistrationPage /> },
+        { path: tAll({ id: 'routes.pathname.logIn' }), element: <LogInPage /> },
         // Error Pages
         // { path: '*', element: <NotFoundPage /> },
     ]), []);

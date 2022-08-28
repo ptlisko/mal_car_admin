@@ -58,6 +58,7 @@ const defaultLocalizationContextValue: ILocalizationContextModel = {
     useFormatMessageAllStrings: () => (_: MessageDescriptor) => [],
     useFormatMessageFromLanguage: () => (_: string, __: MessageDescriptor) => '',
     useAllMessagesFromLanguage: () => (_: string) => ({}),
+    isServerErrorTranslatable: (_: Error) => false,
     currencies,
     countries,
 };
@@ -164,6 +165,13 @@ const LocalizationServiceProvider: React.FC<ILocalizationServiceProps> = (
         return get(nextTranslations, found);
     }, [activeLanguage]);
 
+    const isServerErrorTranslatable = React.useCallback((serverError: Error): boolean => {
+        const errorMessage = get(serverError, 'message', '');
+        const currentTranslations = get(translations, activeLanguage, {});
+
+        return !!get(currentTranslations, errorMessage, false);
+    }, [activeLanguage])
+
     const localizationContextValue: ILocalizationContextModel = {
         getRouteTranslateByLanguage,
         changeLanguage,
@@ -174,6 +182,7 @@ const LocalizationServiceProvider: React.FC<ILocalizationServiceProps> = (
         useFormatMessageAllStrings,
         useFormatMessageFromLanguage,
         useAllMessagesFromLanguage,
+        isServerErrorTranslatable,
         currencies,
         countries,
     };

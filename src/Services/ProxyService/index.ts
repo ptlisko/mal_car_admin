@@ -176,6 +176,9 @@ class ProxyService implements IProxyService {
                 }
                 ).catch((error: AxiosError) => {
                     this.logErrorToSystemConsole(error);
+                    if (get(error, 'response.data')) {
+                        return reject(new Error(get(error, 'response.data')));
+                    }
 
                     return reject(error);
                 });

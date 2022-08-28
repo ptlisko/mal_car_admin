@@ -10,7 +10,7 @@ import {
 } from './interfaces';
 
 const defaultProxyServiceContextModel: IProxyServiceContextModel = {
-    proxyService: null,
+    proxyService: new ProxyService(),
 };
 
 export const ProxyServiceContext = React.createContext(defaultProxyServiceContextModel);

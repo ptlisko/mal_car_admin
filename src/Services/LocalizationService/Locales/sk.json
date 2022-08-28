@@ -3,12 +3,37 @@
     "routes.pathname.aboutUs": "o-nas",
     "routes.pathname.purchase": "kupit",
     "routes.pathname.sell": "predat",
+    "routes.pathname.registration": "registration",
+    "routes.pathname.logIn": "prihlasenie",
+
     "language.changer.sk": "Sloventina",
     "language.changer.cs": "Cestina",
     "language.changer.en": "Anglictina",
+
     "mainMenu.button.name.contact": "Kontakt",
     "mainMenu.button.name.aboutUs": "O nas",
     "mainMenu.button.name.purchase": "Kupit",
     "mainMenu.button.name.sell": "Predat",
-    "notification.changeLanguage.success": "Jazyk bol úspešne zmenený!"
+
+    "notification.changeLanguage.success": "Jazyk bol úspešne zmenený!",
+
+    "form.registration.submit": "Registrovat",
+    "form.registration.title": "Registracia Mal Car Administracia",
+    "form.registration.firstName.placeholder": "Meno",
+    "form.registration.firstName.label": "Meno",
+    "form.registration.lastName.placeholder": "Priezvisko",
+    "form.registration.lastName.label": "Priezvisko",
+    "form.input.email.label": "E-mail",
+    "form.input.email.requiredValidation": "E-mail je vyzdadovany",
+    "form.input.email.badEmailValidation": "Zle zadany E-mail",
+    "form.input.email.placeholder": "E-mail",
+    "form.input.password.label": "Heslo",
+    "form.input.password.placeholder": "Heslo",
+    "form.input.password.requireValidation": "Heslo je povinne",
+    "form.input.password.tooWeakValidation": "Heslo je prilis slabe",
+    "form.logIn.submit": "Prihlasit",
+    "form.logIn.title": "Prihlasenie Mal Car Administracia",
+
+    "server.error.notFound.email": "E-mail nenajdeny, prosim registrujte sa!",
+    "server.error.invalid.password": "Nespravne heslo!"
 }

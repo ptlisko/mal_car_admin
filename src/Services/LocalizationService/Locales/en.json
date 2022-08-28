@@ -3,12 +3,37 @@
     "routes.pathname.aboutUs": "about-us",
     "routes.pathname.purchase": "purchase",
     "routes.pathname.sell": "sell",
+    "routes.pathname.registration": "registracia",
+    "routes.pathname.logIn": "log-in",
+
     "language.changer.sk": "Slovak",
     "language.changer.cs": "Czech",
     "language.changer.en": "English",
+
     "mainMenu.button.name.contact": "Contact",
     "mainMenu.button.name.aboutUs": "About Us",
     "mainMenu.button.name.purchase": "Purchase",
     "mainMenu.button.name.sell": "Sell",
-    "notification.changeLanguage.success": "The language has been successfully changed!"
+
+    "notification.changeLanguage.success": "The language has been successfully changed!",
+
+    "form.registration.submit": "Register",
+    "form.registration.title": "Registration Mal Car Administration",
+    "form.registration.firstName.placeholder": "First name",
+    "form.registration.firstName.label": "First name",
+    "form.registration.lastName.placeholder": "Surname",
+    "form.registration.lastName.label": "Surname",
+    "form.input.email.label": "E-mail",
+    "form.input.email.requiredValidation": "E-mail is required",
+    "form.input.email.badEmailValidation": "Bad E-mail",
+    "form.input.email.placeholder": "E-mail",
+    "form.input.password.label": "Password",
+    "form.input.password.placeholder": "Password",
+    "form.input.password.requireValidation": "Password is Required",
+    "form.input.password.tooWeakValidation": "Password is too weak",
+    "form.logIn.submit": "Log In",
+    "form.logIn.title": "Log In Mal Car Administration",
+
+    "server.error.notFound.email": "E-mail not found, Please register!",
+    "server.error.invalid.password": "Nespravne heslo!"
 }

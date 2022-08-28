@@ -24,7 +24,7 @@ import {
     CONFIRM_PASSWORD_TYPE,
 } from './constants';
 
-import "./styles.scss";
+// import "./styles.scss";
 
 const {
     validatePassword,

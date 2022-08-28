@@ -7,7 +7,7 @@ export interface IProxyService {
 }
 
 export interface IProxyServiceContextModel {
-    proxyService: ProxyService | null;
+    proxyService: ProxyService;
 }
 
 export interface IProxyServiceProviderProps {

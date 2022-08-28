@@ -5,7 +5,7 @@ import { LocalizationContext } from "../../../../Services/LocalizationService";
 
 import { ISubmitButtonProps } from "./interfaces";
 
-import "./styles.scss";
+// import "./styles.scss";
 
 /**
  * @category Component Submit Button

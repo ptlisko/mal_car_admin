@@ -1,0 +1,7 @@
+.react-responsive-modal-root {
+    z-index: 99999!important;
+}
+
+.modal-title {
+    text-align: center;
+}

@@ -2,11 +2,11 @@ import * as React from "react";
 import { Form } from 'react-final-form';
 import { get, set } from 'lodash-es';
 
-import SubmitButton from '../Submit';
+import FormContent from './Components/FormContent';
 
 import { IFormProps } from "./interfaces";
 
-import "./styles.scss";
+// import "./styles.scss";
 
 /**
  * @category Component Form
@@ -37,32 +37,12 @@ const FormComponent: React.FC<IFormProps> = (props: any): JSX.Element => {
             mutators={get(props, 'mutators', {})}
             initialValues={get(props, 'initializationValues', {})}
             render={(formRenderPropTypes: Record<any, any>) => {
-                const { handleSubmit, submitting, pristine, valid, form } = formRenderPropTypes;
-                React.useEffect(() => {
-                    if (get(form, 'mutators') && get(props, 'mutatorsReference')) {
-                        const mutatorsReference = get(props, 'mutatorsReference');
-                        set(mutatorsReference, 'current', get(form, 'mutators'));
-                    }
-                }, [get(form, 'mutators', undefined)])
-
                 return (
-                    <form onSubmit={handleSubmit}>
-                        {get(props, 'children', '')}
-                        {get(props, 'submitText', null) && (
-                            <SubmitButton
-                                valid={valid}
-                                pristine={pristine}
-                                submitting={submitting}
-                                submitText={get(props, 'submitText', 'Submit')}
-                            />
-                        )}
-                        {get(props, 'customSubmitContent', null) && (
-                            <>
-                                {get(props, 'customSubmitContent', '')()}
-                            </>
-                        )}
-                    </form>
-                )
+                    <FormContent
+                        {...formRenderPropTypes}
+                        {...props}
+                    />
+                );
             }}
         />
     );

@@ -27,6 +27,7 @@ export interface ILocalizationContextModel {
     useFormatMessageAllStrings: () => (props: MessageDescriptor, values?: {}) => string[];
     useFormatMessageFromLanguage: () => (lang: string, props: MessageDescriptor, values?: {}) => string;
     useAllMessagesFromLanguage: () => (lang: string) => Record<string, MessageFormatElement[] | string>;
+    isServerErrorTranslatable: (serverError: Error) => boolean;
     currencies: ICurrency[];
     countries: ICountry[];
 }
