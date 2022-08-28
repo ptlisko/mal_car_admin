@@ -14,10 +14,10 @@ const LogInPage: React.FC = (): JSX.Element => {
     const authenticationServiceContext = React.useContext(AuthenticationServiceContext);
 
     React.useEffect(() => {
-        if(!authenticationServiceContext.authUser.isLoggedIn) {
+        if (!authenticationServiceContext.authUser.isLoggedIn) {
             modalContext.handleOpenModal(LOG_IN_MODAL);
         }
-    }, [authenticationServiceContext]);
+    }, [authenticationServiceContext, modalContext]);
 
     return (
         <div>

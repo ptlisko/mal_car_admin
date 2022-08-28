@@ -11,12 +11,15 @@ const defaultModalModel: IModalModel = {
     handleCloseModal: () => { },
     handleOpenModal: (_: string) => { },
     modalType: null,
+    handleTogglePreloader: (_: boolean) => { },
+    visiblePreloader: false,
 };
 
 export const ModalContext = React.createContext(defaultModalModel);
 
 const ModalProvider: React.FC<IModalProps> = (props): JSX.Element => {
     const [isOpened, setIsOpened] = React.useState<boolean>(get(defaultModalModel, 'isOpened', false));
+    const [visiblePreloader, setVisiblePreloader] = React.useState<boolean>(get(defaultModalModel, 'visiblePreloader', false));
     const [modalType, setModalType] = React.useState<string | null>(get(defaultModalModel, 'modalType', null));
 
     const handleOpenModal = React.useCallback((nextModalType: string) => {
@@ -29,13 +32,20 @@ const ModalProvider: React.FC<IModalProps> = (props): JSX.Element => {
     const handleCloseModal = React.useCallback(() => {
         setIsOpened(false);
         setModalType(null);
+        handleTogglePreloader(false);
+    }, []);
+
+    const handleTogglePreloader = React.useCallback((nextVisiblePreloader: boolean) => {
+        setVisiblePreloader(nextVisiblePreloader);
     }, []);
 
     const modalModel: IModalModel = {
         isOpened,
         handleOpenModal,
         handleCloseModal,
-        modalType
+        modalType,
+        handleTogglePreloader,
+        visiblePreloader,
     };
 
     return (

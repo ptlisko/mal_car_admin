@@ -12,6 +12,7 @@ import {
 import { ProxyServiceContext } from '../../../../Services/ProxyService/context';
 import { LocalizationContext } from '../../../../Services/LocalizationService';
 import { NotificationServiceContext } from '../../../../Services/NotificationService';
+import { ModalContext } from '../../context';
 
 import {
     PASSWORD_TYPE,
@@ -22,18 +23,20 @@ const RegisterForm: React.FC = (): JSX.Element => {
     const proxyServiceContext = React.useContext(ProxyServiceContext);
     const localizationContext = React.useContext(LocalizationContext);
     const notificationServiceContext = React.useContext(NotificationServiceContext);
+    const modalContext = React.useContext(ModalContext);
     const navigate = useNavigate();
     const t = localizationContext.useFormatMessage();
 
     const handleOnRegister = React.useCallback((formData: Record<any, any>) => {
-        console.log('REGISTRATION DATA => ', formData);
+        modalContext.handleTogglePreloader(true);
         proxyServiceContext.proxyService.post('/api/auth/register', formData)
             .then(() => {
                 notificationServiceContext.handleShowSuccessNotification('notification.registration.success');
                 navigate(`${t({ id: 'routes.pathname.logIn' })}`);
             }).catch((error) => {
                 if (localizationContext.isServerErrorTranslatable(error)) {
-                    notificationServiceContext.handleShowErrorNotification(get(error, 'message'))
+                    notificationServiceContext.handleShowErrorNotification(get(error, 'message'));
+                    modalContext.handleTogglePreloader(false);
                 }
             })
     }, []);

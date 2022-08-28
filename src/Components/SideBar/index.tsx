@@ -6,6 +6,8 @@ import { AuthenticationServiceContext } from '../../Services/AuthenticationServi
 import { DeviceServiceContext } from '../../Services/DeviceService';
 import { SideBarContext } from './context';
 
+import SideBarContent from './Components/SideBarContent';
+
 import usePrevious from '../../Hooks/usePrevious';
 
 import './styles.css';
@@ -63,7 +65,7 @@ const SideBar: React.FC = (): JSX.Element => {
             })}
 
         >
-
+            <SideBarContent />
         </div>
     );
 };

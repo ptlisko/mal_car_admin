@@ -5,6 +5,8 @@ import ReactResponsiveModal from 'react-responsive-modal';
 import { ModalContext } from './context';
 import { DeviceServiceContext } from '../../Services/DeviceService';
 
+import ModalPreloader from './Components/ModalPreloader';
+
 import {
     getModalContentByType,
     getModalWidthByDevice,
@@ -44,7 +46,12 @@ const Modal: React.FC = (): JSX.Element => {
             }}
         >
         {(!!ModalContent) && (
-            <ModalContent />
+            <>
+                {modalContext.visiblePreloader && (
+                    <ModalPreloader />
+                )}
+                <ModalContent />
+            </>
         )} 
       </ReactResponsiveModal>
     );

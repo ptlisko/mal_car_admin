@@ -9,4 +9,6 @@ export interface IModalModel {
     handleOpenModal: (modalType: string) => void;
     handleCloseModal: () => void;
     modalType: string | null;
+    visiblePreloader: boolean;
+    handleTogglePreloader: (nextVisiblePreloader: boolean) => void;
 }

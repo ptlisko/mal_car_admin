@@ -69,6 +69,7 @@ const AuthenticationServiceProvider: React.FC<IAuthenticationServiceProps> = (pr
                     if (localizationContext.isServerErrorTranslatable(error)) {
                         notificationServiceContext.handleShowErrorNotification(get(error, 'message'));
                         setCheckedAuth(true);
+                        modalContext.handleTogglePreloader(false);
                     }
                 });
         }

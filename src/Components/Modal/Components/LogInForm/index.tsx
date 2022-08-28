@@ -11,6 +11,7 @@ import { ProxyServiceContext } from '../../../../Services/ProxyService/context';
 import { LocalizationContext } from '../../../../Services/LocalizationService';
 import { NotificationServiceContext } from '../../../../Services/NotificationService';
 import { AuthenticationServiceContext } from '../../../../Services/AuthenticationService';
+import { ModalContext } from '../../context';
 
 import {
     PASSWORD_TYPE,
@@ -22,17 +23,19 @@ const LogInForm: React.FC = (): JSX.Element => {
     const localizationContext = React.useContext(LocalizationContext);
     const notificationServiceContext = React.useContext(NotificationServiceContext);
     const authenticationServiceContext = React.useContext(AuthenticationServiceContext);
+    const modalContext = React.useContext(ModalContext);
 
     const t = localizationContext.useFormatMessage();
 
     const handleOnLogIn = React.useCallback((formData: Record<any, any>) => {
-        console.log('LOGIN DATA => ', formData);
+        modalContext.handleTogglePreloader(true);
         proxyServiceContext.proxyService.post('/api/auth/login', formData)
             .then((response) => {
                 authenticationServiceContext.getUserMe(`${response}`);
             }).catch((error) => {
                 if (localizationContext.isServerErrorTranslatable(error)) {
-                    notificationServiceContext.handleShowErrorNotification(get(error, 'message'))
+                    notificationServiceContext.handleShowErrorNotification(get(error, 'message'));
+                    modalContext.handleTogglePreloader(false);
                 }
             })
     }, []);
