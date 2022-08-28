@@ -1,0 +1,60 @@
+.side-bar-toggable-item-wrap {
+    width: 100%;
+    padding-left: 10px;
+    padding-right: 10px;
+    min-height: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    align-self: center;
+}
+
+.side-bar-toggable-item-wrap .side-bar-toggable-header {
+    width: 100%;
+    height: 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    align-content: center;
+    align-self: center;
+    cursor: pointer;
+}
+
+.side-bar-toggable-item-wrap .side-bar-toggable-header .side-bar-toggable-icon-wrap {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    align-self: center;
+}
+
+.side-bar-toggable-item-wrap .side-bar-toggable-header .side-bar-toggable-title-wrap {
+    flex: 1;
+    height: 30px;
+    padding-left: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    align-content: center;
+    align-self: center;
+}
+
+.side-bar-toggable-item-wrap .side-bar-toggable-sub-items {
+    width: 100%;
+    padding-left: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    align-self: center;
+}

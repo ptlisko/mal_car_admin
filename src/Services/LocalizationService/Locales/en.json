@@ -1,6 +1,7 @@
 {
     "routes.pathname.registration": "registration",
     "routes.pathname.logIn": "log-in",
+    "routes.pathname.userList": "user-list",
 
     "language.changer.sk": "Slovak",
     "language.changer.cs": "Czech",
@@ -11,6 +12,16 @@
     "mainMenu.button.name.logOut": "Log Out",
     "mainMenu.button.name.logIn": "Log In",
     "mainMenu.button.name.register": "Register",
+
+    "sidebar.item.title.usersManagement": "User management",
+    "sidebar.item.title.userList": "User list",
+    "sidebar.item.title.createUser": "Create user",
+    "sidebar.item.title.carManagement": "Car management",
+    "sidebar.item.title.carList": "Car list",
+    "sidebar.item.title.createCar": "Add car",
+    "sidebar.item.title.fuelManagement": "Fuel types management",
+    "sidebar.item.title.fuelList": "Fuel type list",
+    "sidebar.item.title.createfuel": "Add Fuel type",
 
     "notification.changeLanguage.success": "The language has been successfully changed!",
     "notification.logIn.success": "Login success, welcome!",
@@ -33,6 +44,8 @@
     "form.input.password.tooWeakValidation": "Password is too weak",
     "form.logIn.submit": "Log In",
     "form.logIn.title": "Log In Mal Car Administration",
+    "form.createUser.submit": "Create User",
+    "form.createUser.title": "Create user",
 
     "server.error.notFound.email": "E-mail not found, Please register!",
     "server.error.invalid.password": "Invalid Password!",

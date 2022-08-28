@@ -17,6 +17,7 @@ import Layout from '../../Components/Layout';
 import DashBoardPage from "../../Pages/DashBoardPage";
 import RegistrationPage from '../../Pages/RegistrationPage';
 import LogInPage from '../../Pages/LogInPage';
+import UserListPage from '../../Pages/UserListPage';
 
 /**
    * Takes custom routes and converts them recursively to React Router DOM routes
@@ -51,11 +52,12 @@ const createRoutes = (routes: IRouteProps[]): RouteObject[] => {
 const Routing: React.FC = () => {
     const localizationContext = React.useContext(LocalizationContext);
     const tAll = localizationContext.useFormatMessageAllStrings();
-
+    
     const routes = React.useMemo(() => createRoutes([
         { path: '/', element: <DashBoardPage /> },
         { path: tAll({ id: 'routes.pathname.registration' }), element: <RegistrationPage /> },
         { path: tAll({ id: 'routes.pathname.logIn' }), element: <LogInPage /> },
+        { path: tAll({ id: 'routes.pathname.userList' }), element: <UserListPage /> },
         // Error Pages
         // { path: '*', element: <NotFoundPage /> },
     ]), []);

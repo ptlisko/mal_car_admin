@@ -1,6 +1,7 @@
 {
     "routes.pathname.registration": "registracia",
     "routes.pathname.logIn": "prihlasenie",
+    "routes.pathname.userList": "zoznam-uzivatelov",
 
     "language.changer.sk": "Sloventina",
     "language.changer.cs": "Cestina",
@@ -11,6 +12,16 @@
     "mainMenu.button.name.logOut": "Odhlasit sa",
     "mainMenu.button.name.logIn": "Prihlasit sa",
     "mainMenu.button.name.register": "Registrovat sa",
+
+    "sidebar.item.title.usersManagement": "Sprava uzivatelov",
+    "sidebar.item.title.userList": "Zoznam uzivatelov",
+    "sidebar.item.title.createUser": "Vytvorit uzivatela",
+    "sidebar.item.title.carManagement": "Sprava aut",
+    "sidebar.item.title.carList": "Zoznam aut",
+    "sidebar.item.title.createCar": "Pridat auto",
+    "sidebar.item.title.fuelManagement": "Sprava druhov paliv",
+    "sidebar.item.title.fuelList": "Zoznam druhov paliv",
+    "sidebar.item.title.createfuel": "Pridat druh paliva",
 
     "notification.changeLanguage.success": "Jazyk bol úspešne zmenený!",
     "notification.logIn.success": "Prihlasenie prebehlo uspesne, vitajte!",
@@ -33,6 +44,8 @@
     "form.input.password.tooWeakValidation": "Heslo je prilis slabe",
     "form.logIn.submit": "Prihlasit",
     "form.logIn.title": "Prihlasenie Mal Car Administracia",
+    "form.createUser.submit": "Vytvorit uzivatela",
+    "form.createUser.title": "Vytvorenie uzivatela",
 
     "server.error.notFound.email": "E-mail nenajdeny, prosim registrujte sa!",
     "server.error.invalid.password": "Nespravne heslo!",

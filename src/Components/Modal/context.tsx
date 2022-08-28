@@ -27,13 +27,13 @@ const ModalProvider: React.FC<IModalProps> = (props): JSX.Element => {
             setIsOpened(true);
             setModalType(nextModalType);
         }
-    }, [modalType]);
+    }, [modalType, isOpened]);
 
     const handleCloseModal = React.useCallback(() => {
-        setIsOpened(false);
         setModalType(null);
         handleTogglePreloader(false);
-    }, []);
+        setIsOpened(false);
+    }, [isOpened]);
 
     const handleTogglePreloader = React.useCallback((nextVisiblePreloader: boolean) => {
         setVisiblePreloader(nextVisiblePreloader);

@@ -22,7 +22,7 @@ const Modal: React.FC = (): JSX.Element => {
         deviceServiceContext.isTablet,
         deviceServiceContext.layoutWidth,
     ));
-    
+
     const ModalContent = getModalContentByType(modalContext.modalType);
     React.useEffect(() => {
         setModalWidth(getModalWidthByDevice(
@@ -33,27 +33,31 @@ const Modal: React.FC = (): JSX.Element => {
     }, [deviceServiceContext]);
 
     return (
-        <ReactResponsiveModal
-            open={modalContext.isOpened}
-            onClose={modalContext.handleCloseModal}
-            center
-            closeOnOverlayClick={false}
-            styles={{
-                modal: {
-                    width: `${modalWidth}px`,
-                    marginTop: '80px',
-                }
-            }}
-        >
-        {(!!ModalContent) && (
-            <>
-                {modalContext.visiblePreloader && (
-                    <ModalPreloader />
-                )}
-                <ModalContent />
-            </>
-        )} 
-      </ReactResponsiveModal>
+        <>
+            {modalContext.isOpened && (
+                <ReactResponsiveModal
+                    open={modalContext.isOpened}
+                    onClose={modalContext.handleCloseModal}
+                    center
+                    closeOnOverlayClick={false}
+                    styles={{
+                        modal: {
+                            width: `${modalWidth}px`,
+                            marginTop: '80px',
+                        }
+                    }}
+                >
+                    {(!!ModalContent) && (
+                        <>
+                            {modalContext.visiblePreloader && (
+                                <ModalPreloader />
+                            )}
+                            <ModalContent />
+                        </>
+                    )}
+                </ReactResponsiveModal>
+            )}
+        </>
     );
 };
 

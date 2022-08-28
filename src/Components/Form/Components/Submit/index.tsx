@@ -33,7 +33,7 @@ const SubmitButton: React.FC<ISubmitButtonProps> = (props: ISubmitButtonProps): 
   // TODO: mt-2rem
   return (
     <button
-      className="btn mt-1rem"
+      className="btn btn-success"
       type="submit"
       style={{
         cursor: isSubmitButtonDisabled() ? 'not-allowed' : 'pointer',
